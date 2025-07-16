@@ -19,7 +19,7 @@
     -   Write unit tests for hasPslEquivalent() method
     -   _Requirements: 2.1, 2.2, 2.3_
 
--   [ ] 3. Implement and test PslSuggestionsExtension core functionality
+-   [x] 3. Implement and test PslSuggestionsExtension core functionality
 
     -   Implement getRestrictedFunctions() method that delegates to FunctionMappingService
     -   Write unit tests for getRestrictedFunctions() delegation

@@ -23,19 +23,49 @@ final readonly class PslSuggestionsExtension implements RestrictedFunctionUsageE
 
     public function isRestrictedFunctionUsage(FunctionReflection $functionReflection, Scope $scope): ?RestrictedUsage
     {
-        // TODO: Implement logic to determine if function call should be restricted
+        $functionName = $functionReflection->getName();
+
+        // Check if this is a native function that has a PSL equivalent
+        if ($this->mappingService->hasPslEquivalent($functionName)) {
+            return RestrictedUsage::create(
+                errorMessage: $this->generateSuggestionMessage($functionName, $this->mappingService->getPslEquivalent($functionName)),
+                identifier: 'function.pslSuggestion'
+            );
+        }
+
         return null;
     }
 
     public function getRestrictionError(FuncCall $funcCall, Scope $scope): ?string
     {
-        // TODO: Implement function call analysis and warning generation
-        return null;
+        // Get the function name from the function call
+        if (! $funcCall->name instanceof \PhpParser\Node\Name) {
+            return null; // Skip variable function calls
+        }
+
+        $functionName = $funcCall->name->toString();
+
+        // Check if the function is called in global namespace (avoid false positives for namespaced functions)
+        if ($funcCall->name->isFullyQualified() || $funcCall->name->isRelative()) {
+            return null; // Skip fully qualified or relative function calls
+        }
+
+        // Check if this function has a PSL equivalent
+        if (! $this->mappingService->hasPslEquivalent($functionName)) {
+            return null;
+        }
+
+        $pslEquivalent = $this->mappingService->getPslEquivalent($functionName);
+
+        return $this->generateSuggestionMessage($functionName, $pslEquivalent);
     }
 
     private function generateSuggestionMessage(string $nativeFunction, string $pslFunction): string
     {
-        // TODO: Implement user-friendly warning message generation
-        return '';
+        return sprintf(
+            'Consider using %s() instead of %s() for better type safety and consistency.',
+            $pslFunction,
+            $nativeFunction
+        );
     }
 }

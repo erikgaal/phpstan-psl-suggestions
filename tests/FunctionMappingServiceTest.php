@@ -13,7 +13,7 @@ final class FunctionMappingServiceTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->service = new FunctionMappingService();
+        $this->service = new FunctionMappingService;
     }
 
     public function test_can_be_instantiated(): void
@@ -25,7 +25,7 @@ final class FunctionMappingServiceTest extends TestCase
     {
         $customMappings = ['custom_func' => 'Psl\Custom\func'];
         $service = new FunctionMappingService($customMappings);
-        
+
         $this->assertInstanceOf(FunctionMappingService::class, $service);
         $this->assertTrue($service->hasPslEquivalent('custom_func'));
         $this->assertEquals('Psl\Custom\func', $service->getPslEquivalent('custom_func'));
@@ -40,7 +40,7 @@ final class FunctionMappingServiceTest extends TestCase
     public function test_get_restricted_functions_contains_expected_functions(): void
     {
         $result = $this->service->getRestrictedFunctions();
-        
+
         // Test string functions
         $this->assertContains('strlen', $result);
         $this->assertContains('substr', $result);
@@ -53,7 +53,7 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertContains('rtrim', $result);
         $this->assertContains('implode', $result);
         $this->assertContains('explode', $result);
-        
+
         // Test array functions
         $this->assertContains('array_map', $result);
         $this->assertContains('array_filter', $result);
@@ -63,7 +63,7 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertContains('array_merge', $result);
         $this->assertContains('count', $result);
         $this->assertContains('in_array', $result);
-        
+
         // Test math functions
         $this->assertContains('abs', $result);
         $this->assertContains('max', $result);
@@ -71,17 +71,17 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertContains('round', $result);
         $this->assertContains('ceil', $result);
         $this->assertContains('floor', $result);
-        
+
         // Test type functions
         $this->assertContains('is_string', $result);
         $this->assertContains('is_int', $result);
         $this->assertContains('is_array', $result);
         $this->assertContains('is_bool', $result);
-        
+
         // Test file functions
         $this->assertContains('file_get_contents', $result);
         $this->assertContains('file_put_contents', $result);
-        
+
         // Test encoding functions
         $this->assertContains('base64_encode', $result);
         $this->assertContains('base64_decode', $result);
@@ -108,7 +108,7 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertEquals('Psl\Str\trim', $this->service->getPslEquivalent('trim'));
         $this->assertEquals('Psl\Str\join', $this->service->getPslEquivalent('implode'));
         $this->assertEquals('Psl\Str\split', $this->service->getPslEquivalent('explode'));
-        
+
         // Test array functions
         $this->assertEquals('Psl\Vec\map', $this->service->getPslEquivalent('array_map'));
         $this->assertEquals('Psl\Vec\filter', $this->service->getPslEquivalent('array_filter'));
@@ -117,7 +117,7 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertEquals('Psl\Dict\values', $this->service->getPslEquivalent('array_values'));
         $this->assertEquals('Psl\Vec\count', $this->service->getPslEquivalent('count'));
         $this->assertEquals('Psl\Vec\contains', $this->service->getPslEquivalent('in_array'));
-        
+
         // Test math functions
         $this->assertEquals('Psl\Math\abs', $this->service->getPslEquivalent('abs'));
         $this->assertEquals('Psl\Math\max', $this->service->getPslEquivalent('max'));
@@ -125,17 +125,17 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertEquals('Psl\Math\round', $this->service->getPslEquivalent('round'));
         $this->assertEquals('Psl\Math\ceil', $this->service->getPslEquivalent('ceil'));
         $this->assertEquals('Psl\Math\floor', $this->service->getPslEquivalent('floor'));
-        
+
         // Test type functions
         $this->assertEquals('Psl\Type\string', $this->service->getPslEquivalent('is_string'));
         $this->assertEquals('Psl\Type\int', $this->service->getPslEquivalent('is_int'));
         $this->assertEquals('Psl\Type\vec', $this->service->getPslEquivalent('is_array'));
         $this->assertEquals('Psl\Type\bool', $this->service->getPslEquivalent('is_bool'));
-        
+
         // Test file functions
         $this->assertEquals('Psl\File\read', $this->service->getPslEquivalent('file_get_contents'));
         $this->assertEquals('Psl\File\write', $this->service->getPslEquivalent('file_put_contents'));
-        
+
         // Test encoding functions
         $this->assertEquals('Psl\Encoding\Base64\encode', $this->service->getPslEquivalent('base64_encode'));
         $this->assertEquals('Psl\Encoding\Base64\decode', $this->service->getPslEquivalent('base64_decode'));
@@ -172,27 +172,27 @@ final class FunctionMappingServiceTest extends TestCase
         $this->assertTrue($this->service->hasPslEquivalent('trim'));
         $this->assertTrue($this->service->hasPslEquivalent('implode'));
         $this->assertTrue($this->service->hasPslEquivalent('explode'));
-        
+
         // Test array functions
         $this->assertTrue($this->service->hasPslEquivalent('array_map'));
         $this->assertTrue($this->service->hasPslEquivalent('array_filter'));
         $this->assertTrue($this->service->hasPslEquivalent('count'));
         $this->assertTrue($this->service->hasPslEquivalent('in_array'));
-        
+
         // Test math functions
         $this->assertTrue($this->service->hasPslEquivalent('abs'));
         $this->assertTrue($this->service->hasPslEquivalent('max'));
         $this->assertTrue($this->service->hasPslEquivalent('min'));
-        
+
         // Test type functions
         $this->assertTrue($this->service->hasPslEquivalent('is_string'));
         $this->assertTrue($this->service->hasPslEquivalent('is_int'));
         $this->assertTrue($this->service->hasPslEquivalent('is_array'));
-        
+
         // Test file functions
         $this->assertTrue($this->service->hasPslEquivalent('file_get_contents'));
         $this->assertTrue($this->service->hasPslEquivalent('file_put_contents'));
-        
+
         // Test encoding functions
         $this->assertTrue($this->service->hasPslEquivalent('base64_encode'));
         $this->assertTrue($this->service->hasPslEquivalent('json_encode'));
@@ -220,7 +220,7 @@ final class FunctionMappingServiceTest extends TestCase
     public function test_all_restricted_functions_have_psl_equivalents(): void
     {
         $restrictedFunctions = $this->service->getRestrictedFunctions();
-        
+
         foreach ($restrictedFunctions as $function) {
             $this->assertTrue(
                 $this->service->hasPslEquivalent($function),
@@ -240,7 +240,7 @@ final class FunctionMappingServiceTest extends TestCase
     public function test_psl_equivalents_follow_expected_format(): void
     {
         $restrictedFunctions = $this->service->getRestrictedFunctions();
-        
+
         foreach ($restrictedFunctions as $function) {
             $pslEquivalent = $this->service->getPslEquivalent($function);
             $this->assertStringStartsWith(
@@ -259,25 +259,21 @@ final class FunctionMappingServiceTest extends TestCase
     public function test_comprehensive_function_coverage(): void
     {
         $restrictedFunctions = $this->service->getRestrictedFunctions();
-        
+
         // Verify we have comprehensive coverage across different categories
-        $stringFunctions = array_filter($restrictedFunctions, fn($func) => 
-            str_starts_with($func, 'str') || in_array($func, ['trim', 'ltrim', 'rtrim', 'implode', 'explode'])
+        $stringFunctions = array_filter($restrictedFunctions, fn ($func) => str_starts_with($func, 'str') || in_array($func, ['trim', 'ltrim', 'rtrim', 'implode', 'explode'])
         );
         $this->assertGreaterThan(10, count($stringFunctions), 'Should have many string functions');
-        
-        $arrayFunctions = array_filter($restrictedFunctions, fn($func) => 
-            str_starts_with($func, 'array_') || $func === 'count' || $func === 'in_array'
+
+        $arrayFunctions = array_filter($restrictedFunctions, fn ($func) => str_starts_with($func, 'array_') || $func === 'count' || $func === 'in_array'
         );
         $this->assertGreaterThan(10, count($arrayFunctions), 'Should have many array functions');
-        
-        $mathFunctions = array_filter($restrictedFunctions, fn($func) => 
-            in_array($func, ['abs', 'max', 'min', 'round', 'ceil', 'floor', 'pow', 'sqrt'])
+
+        $mathFunctions = array_filter($restrictedFunctions, fn ($func) => in_array($func, ['abs', 'max', 'min', 'round', 'ceil', 'floor', 'pow', 'sqrt'])
         );
         $this->assertGreaterThan(5, count($mathFunctions), 'Should have several math functions');
-        
-        $typeFunctions = array_filter($restrictedFunctions, fn($func) => 
-            str_starts_with($func, 'is_')
+
+        $typeFunctions = array_filter($restrictedFunctions, fn ($func) => str_starts_with($func, 'is_')
         );
         $this->assertGreaterThan(5, count($typeFunctions), 'Should have several type functions');
     }
