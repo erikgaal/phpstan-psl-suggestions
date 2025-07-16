@@ -1,6 +1,6 @@
 # Implementation Plan
 
--   [ ] 1. Create core project structure and interfaces
+-   [x] 1. Create core project structure and interfaces
 
     -   Set up the basic directory structure for the extension classes
     -   Create the main PslSuggestionsExtension class skeleton that implements RestrictedFunctionUsageExtension
