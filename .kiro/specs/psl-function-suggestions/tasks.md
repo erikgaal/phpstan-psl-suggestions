@@ -8,7 +8,7 @@
     -   Set up basic test structure and PHPUnit configuration
     -   _Requirements: 3.2, 3.3_
 
--   [ ] 2. Implement and test FunctionMappingService with comprehensive PSL mappings
+-   [x] 2. Implement and test FunctionMappingService with comprehensive PSL mappings
 
     -   Create a comprehensive array of native PHP functions mapped to their PSL equivalents covering string, array, math, type, file, and encoding functions
     -   Implement getRestrictedFunctions() method to return array of native function names
