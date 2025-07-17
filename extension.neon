@@ -1,0 +1,10 @@
+services:
+	functionMappingService:
+		class: ErikGaal\PhpstanPslSuggestions\FunctionMappingService
+
+	pslSuggestionsExtension:
+		class: ErikGaal\PhpstanPslSuggestions\PslSuggestionsExtension
+		arguments:
+			- @functionMappingService
+		tags:
+			- phpstan.restrictedFunctionUsageExtension

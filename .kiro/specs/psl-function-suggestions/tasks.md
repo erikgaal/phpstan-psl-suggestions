@@ -31,7 +31,7 @@
     -   Write unit tests for edge cases including namespaced functions and user-defined functions
     -   _Requirements: 1.1, 1.2, 1.3, 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 5.3_
 
--   [ ] 4. Create and test PHPStan extension configuration
+-   [x] 4. Create and test PHPStan extension configuration
 
     -   Create extension.neon configuration file to register the PslSuggestionsExtension with PHPStan
     -   Set up proper service definitions and dependency injection for the extension
