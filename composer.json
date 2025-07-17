@@ -1,6 +1,6 @@
 {
     "name": "erikgaal/phpstan-psl-rule",
-    "description": "PHPStan rules to suggest azziez/psl replacements for native features",
+    "description": "PHPStan rules to suggest azziez/psl replacements for native functions",
     "type": "phpstan-extension",
     "keywords": [
         "erikgaal",
