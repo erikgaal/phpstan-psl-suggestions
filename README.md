@@ -25,7 +25,7 @@ composer require erikgaal/phpstan-psl-suggestions
 ## Usage
 
 ```php
-$skeleton = new ErikGaal\PhpstanPslSuggestions();
+$skeleton = new ErikGaal\PhpstanPslRule();
 echo $skeleton->echoPhrase('Hello, ErikGaal!');
 ```
 

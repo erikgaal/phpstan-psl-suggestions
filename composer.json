@@ -1,12 +1,12 @@
 {
-    "name": "erikgaal/phpstan-psl-suggestions",
+    "name": "erikgaal/phpstan-psl-rule",
     "description": "PHPStan rules to suggest azziez/psl replacements for native features",
     "type": "phpstan-extension",
     "keywords": [
         "erikgaal",
         "phpstan-psl-suggestions"
     ],
-    "homepage": "https://github.com/erikgaal/phpstan-psl-suggestions",
+    "homepage": "https://github.com/erikgaal/phpstan-psl-rule",
     "license": "MIT",
     "authors": [
         {
@@ -26,17 +26,17 @@
     },
     "autoload": {
         "psr-4": {
-            "ErikGaal\\PhpstanPslSuggestions\\": "src"
+            "ErikGaal\\PhpstanPslRule\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ErikGaal\\PhpstanPslSuggestions\\Tests\\": "tests"
+            "ErikGaal\\PhpstanPslRule\\Tests\\": "tests"
         }
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-            "test-coverage": "vendor/bin/phpunit --coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage",
         "format": "vendor/bin/pint"
     },
     "config": {

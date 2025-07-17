@@ -1,9 +1,9 @@
 services:
 	functionMappingService:
-		class: ErikGaal\PhpstanPslSuggestions\FunctionMappingService
+		class: ErikGaal\PhpstanPslRule\FunctionMappingService
 
 	pslSuggestionsExtension:
-		class: ErikGaal\PhpstanPslSuggestions\PslSuggestionsExtension
+		class: ErikGaal\PhpstanPslRule\PslSuggestionsExtension
 		arguments:
 			- @functionMappingService
 		tags:

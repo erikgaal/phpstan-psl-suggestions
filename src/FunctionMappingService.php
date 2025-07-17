@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ErikGaal\PhpstanPslSuggestions;
+namespace ErikGaal\PhpstanPslRule;
 
 final readonly class FunctionMappingService
 {

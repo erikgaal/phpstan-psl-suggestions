@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ErikGaal\PhpstanPslSuggestions;
+namespace ErikGaal\PhpstanPslRule;
 
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\FunctionReflection;

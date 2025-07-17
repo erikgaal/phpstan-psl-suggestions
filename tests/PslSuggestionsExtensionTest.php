@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ErikGaal\PhpstanPslSuggestions\Tests;
+namespace ErikGaal\PhpstanPslRule\Tests;
 
 use PHPStan\Rules\RestrictedUsage\RestrictedFunctionUsageRule;
 use PHPStan\Rules\Rule;

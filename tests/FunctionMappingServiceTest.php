@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ErikGaal\PhpstanPslSuggestions\Tests;
+namespace ErikGaal\PhpstanPslRule\Tests;
 
-use ErikGaal\PhpstanPslSuggestions\FunctionMappingService;
+use ErikGaal\PhpstanPslRule\FunctionMappingService;
 use PHPUnit\Framework\TestCase;
 
 final class FunctionMappingServiceTest extends TestCase

@@ -25,13 +25,13 @@
 
 ### `/src` Directory
 - Contains main application code
-- Namespace: `ErikGaal\PhpstanPslSuggestions`
-- Main class: `PhpstanPslSuggestionsClass.php`
+- Namespace: `ErikGaal\PhpstanPslRule`
+- Main class: `PhpstanPslRuleClass.php`
 - Uses PSR-4 autoloading
 
 ### `/tests` Directory  
 - Contains PHPUnit test files
-- Namespace: `ErikGaal\PhpstanPslSuggestions\Tests`
+- Namespace: `ErikGaal\PhpstanPslRule\Tests`
 - Test classes extend `PHPUnit\Framework\TestCase`
 - Uses PSR-4 autoloading for test classes
 
