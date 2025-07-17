@@ -3,11 +3,13 @@
 namespace MyApp;
 
 // These should NOT trigger PSL suggestions because they're in a namespace
-function strlen($str) {
+function strlen($str)
+{
     return \strlen($str);
 }
 
-function array_map($callback, $array) {
+function array_map($callback, $array)
+{
     return \array_map($callback, $array);
 }
 

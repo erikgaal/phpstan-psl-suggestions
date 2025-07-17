@@ -20,7 +20,7 @@ final class PslSuggestionsExtensionTest extends RuleTestCase
     }
 
     #[DataProvider('files')]
-    public function testRule(string $file, array $expectedErrors): void
+    public function test_rule(string $file, array $expectedErrors): void
     {
         $this->analyse([$file], $expectedErrors);
     }
@@ -28,7 +28,7 @@ final class PslSuggestionsExtensionTest extends RuleTestCase
     public static function files(): iterable
     {
         return [
-            'native functions' => [__DIR__ . '/data/native-functions.php', [
+            'native functions' => [__DIR__.'/data/native-functions.php', [
                 ['Consider using Psl\Str\length() instead of strlen() for better type safety and consistency.', 3],
                 ['Consider using Psl\Vec\map() instead of array_map() for better type safety and consistency.', 4],
                 ['Consider using Psl\Math\max() instead of max() for better type safety and consistency.', 5],
@@ -40,21 +40,21 @@ final class PslSuggestionsExtensionTest extends RuleTestCase
                 ['Consider using Psl\Dict\keys() instead of array_keys() for better type safety and consistency.', 13],
                 ['Consider using Psl\Vec\count() instead of count() for better type safety and consistency.', 14],
             ]],
-            'namespaced functions' => [__DIR__ . '/data/namespaced-functions.php', [
+            'namespaced functions' => [__DIR__.'/data/namespaced-functions.php', [
                 ['Consider using Psl\Str\length() instead of strlen() for better type safety and consistency.', 7],
                 ['Consider using Psl\Vec\map() instead of array_map() for better type safety and consistency.', 11],
             ]],
-            'class methods' => [__DIR__ . '/data/class-methods.php', [
-                ['Consider using Psl\Str\length() instead of strlen() for better type safety and consistency.', 10]
+            'class methods' => [__DIR__.'/data/class-methods.php', [
+                ['Consider using Psl\Str\length() instead of strlen() for better type safety and consistency.', 10],
             ]],
-            'unknown functions' => [__DIR__ . '/data/unknown-functions.php', []],
+            'unknown functions' => [__DIR__.'/data/unknown-functions.php', []],
         ];
     }
 
     public static function getAdditionalConfigFiles(): array
     {
         return [
-            __DIR__ . '/../extension.neon',
+            __DIR__.'/../extension.neon',
         ];
     }
 }

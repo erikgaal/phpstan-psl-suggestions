@@ -16,4 +16,6 @@ $func = 'strlen';
 $result8 = $func('hello');
 
 // Anonymous functions should be ignored
-$result9 = (function($x) { return $x * 2; })(5);
+$result9 = (function ($x) {
+    return $x * 2;
+})(5);
